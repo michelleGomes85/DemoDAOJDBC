@@ -31,8 +31,10 @@ public class SellerDaoJDBC implements SellerDao {
 
 		try {
 
-			preparedStatement = connection.prepareStatement("INSERT INTO seller "
-					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) " + "VALUES (?, ?, ?, ?, ?)",
+			preparedStatement = connection.prepareStatement(
+					"INSERT INTO seller " +
+					"(Name, Email, BirthDate, BaseSalary, DepartmentId) " + 
+					"VALUES (?, ?, ?, ?, ?)",
 					Statement.RETURN_GENERATED_KEYS);
 
 			preparedStatement.setString(1, seller.getName());
@@ -122,8 +124,10 @@ public class SellerDaoJDBC implements SellerDao {
 		try {
 
 			preparedStatement = connection.prepareStatement(
-					"SELECT seller.*,department.Name as DepName " + "FROM seller INNER JOIN department "
-							+ "ON seller.DepartmentId = department.Id " + "WHERE seller.Id = ?");
+					"SELECT seller.*,department.Name as DepName " + 
+					"FROM seller INNER JOIN department " + 
+					"ON seller.DepartmentId = department.Id " + 
+					"WHERE seller.Id = ?");
 
 			preparedStatement.setInt(1, id);
 
@@ -159,7 +163,6 @@ public class SellerDaoJDBC implements SellerDao {
 	private Department instantiateDepartment(ResultSet resultSet) throws SQLException {
 
 		Department department = new Department();
-		;
 
 		department.setId(resultSet.getInt("DepartmentId"));
 		department.setName(resultSet.getString("DepName"));
@@ -176,8 +179,11 @@ public class SellerDaoJDBC implements SellerDao {
 		try {
 
 			preparedStatement = connection.prepareStatement(
-					"SELECT seller.*,department.Name as DepName " + "FROM seller INNER JOIN department "
-							+ "ON seller.DepartmentId = department.Id " + "ORDER BY Name");
+					"SELECT seller.*,department.Name as DepName " + 
+					"FROM seller INNER JOIN department " + 
+					"ON seller.DepartmentId = department.Id " + 
+					"ORDER BY Name"
+			);
 
 			resultSet = preparedStatement.executeQuery();
 
