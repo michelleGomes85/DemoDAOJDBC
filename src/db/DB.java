@@ -13,7 +13,7 @@ public class DB {
 
 	private static Connection connection = null;
 	
-	private static final String PATH_PROPERTIES_CONECTION = "src/db/connection/properties";
+	private static final String PATH_PROPERTIES_CONECTION = "src/connection/properties";
 
 	public static Connection getConnection() {
 

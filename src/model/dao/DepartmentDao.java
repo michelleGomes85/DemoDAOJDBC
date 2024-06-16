@@ -1,19 +1,13 @@
 package model.dao;
 
-import java.util.List;
-
 import model.entities.Department;
 
-public interface DepartmentDao {
-
-	void insert(Department department);
+public interface DepartmentDao extends GenericDao<Department> {
 	
-	void update(Department department);
-	
-	void deleteById(Integer id);
-	
-	Department findById(Integer id);
-	
-	List<Department> findAll();
+	String INSERT = "INSERT INTO department (Name) VALUES (?)";
+	String UPDATE = "UPDATE department SET Name = ? WHERE Id = ? ";
+	String DELETE_BY_ID = "DELETE FROM department WHERE Id = ?";
+	String FIND_BY_ID = "SELECT * FROM department WHERE department.Id = ?";
+	String FIND_ALL = "SELECT * FROM department ORDER BY Name";
 	
 }//interface DepartmentDao

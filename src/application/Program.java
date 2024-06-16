@@ -36,7 +36,7 @@ public class Program {
 		for (Seller seller2 : list)
 			System.out.println(seller2);
 		
-		System.out.println("\n=== TEST 4: seller findAll ===");
+		System.out.println("\n=== TEST 4: seller Insert ===");
 		
 		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
 		
@@ -47,7 +47,7 @@ public class Program {
 		
 		seller = sellerDao.findById(1);
 		
-		seller.setName("Martha Kent");
+		seller.setName("Martha Waine");
 		sellerDao.update(seller);
 		System.out.println("Update");
 		
